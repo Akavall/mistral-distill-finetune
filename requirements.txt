@@ -2,3 +2,6 @@ boto3==1.35.93
 torch==2.5.1
 sentencepiece==0.2.0
 transformers==4.47.1
+protobuf==5.29.3
+datasets==3.2.0
+peft==0.14.0

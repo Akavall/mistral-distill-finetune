@@ -22,7 +22,7 @@ def tokenize_function(examples):
 
 if __name__ == "__main__":
 
-    with open("./questions/training_data_dutch_defense/dutch_defense_questions.json") as f:
+    with open("./training_data/dutch_defense_qa.json") as f:
         training_data = json.load(f)
 
     train_dataset = Dataset.from_dict({
@@ -53,7 +53,7 @@ if __name__ == "__main__":
     tokenized_dataset = train_dataset.map(tokenize_function, batched=True)
 
     training_args = TrainingArguments(
-    output_dir="/mnt/mistral_fine_tuned",  
+    output_dir="/mnt/mistral/mistral_fine_tuned",  
     per_device_train_batch_size=2,  
     gradient_accumulation_steps=8,
     num_train_epochs=3,
@@ -75,8 +75,8 @@ if __name__ == "__main__":
 
     trainer.train()
 
-    model.save_pretrained("/mnt/mistral_fine_tuned/lora_adapter")
-    tokenizer.save_pretrained("/mnt/mistral_fine_tuned")
+    model.save_pretrained("/mnt/mistral/mistral_fine_tuned/lora_adapter")
+    tokenizer.save_pretrained("/mnt/mistral/mistral_fine_tuned")
 
 
 
